@@ -8,7 +8,7 @@ import Crag from '../models/Crag.js';
 import Sector from '../models/Sector.js';
 import Route from '../models/Route.js';
 import Parking from '../models/Parking.js';
-import { requireAuth, optionalAuth } from '../middleware/auth.js';
+import { requireAuth, optionalAuth, isValidObjectId } from '../middleware/auth.js';
 
 const router = Router();
 

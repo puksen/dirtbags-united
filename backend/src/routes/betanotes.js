@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { body, validationResult } from 'express-validator';
 import BetaNote from '../models/BetaNote.js';
-import { requireAuth, optionalAuth } from '../middleware/auth.js';
+import { requireAuth, optionalAuth, isValidObjectId } from '../middleware/auth.js';
 
 const router = Router();
 
@@ -9,6 +9,7 @@ router.get('/', optionalAuth, async (req, res) => {
   try {
     const { route_id } = req.query;
     if (!route_id) return res.status(400).json({ error: 'route_id required' });
+    if (!isValidObjectId(route_id)) return res.status(400).json({ error: 'Invalid route_id' });
 
     const filter = {
       route_id,

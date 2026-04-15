@@ -1,13 +1,14 @@
 import { Router } from 'express';
 import { body, validationResult } from 'express-validator';
 import Sector from '../models/Sector.js';
-import { requireAuth } from '../middleware/auth.js';
+import { requireAuth, isValidObjectId } from '../middleware/auth.js';
 
 const router = Router();
 
 router.get('/', async (req, res) => {
   try {
     const { crag_id } = req.query;
+    if (crag_id && !isValidObjectId(crag_id)) return res.status(400).json({ error: 'Invalid crag_id' });
     const filter = crag_id ? { crag_id } : {};
     const sectors = await Sector.find(filter).lean();
     res.json(sectors);

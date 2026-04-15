@@ -20,6 +20,7 @@ router.post(
 
     try {
       const { nickname, email, password } = req.body;
+      if (typeof nickname !== 'string') return res.status(400).json({ error: 'Invalid nickname' });
       const existing = await User.findOne({ nickname });
       if (existing) return res.status(409).json({ error: 'Nickname taken' });
 
@@ -50,6 +51,7 @@ router.post(
 
     try {
       const { nickname, password } = req.body;
+      if (typeof nickname !== 'string') return res.status(400).json({ error: 'Invalid nickname' });
       const user = await User.findOne({ nickname });
       if (!user) return res.status(401).json({ error: 'Invalid credentials' });
 

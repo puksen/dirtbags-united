@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import rateLimit from 'express-rate-limit';
 import authRoutes from './routes/auth.js';
 import cragRoutes from './routes/crags.js';
 import sectorRoutes from './routes/sectors.js';
@@ -16,6 +17,23 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static('src/uploads'));
+
+const generalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.use('/api/', generalLimiter);
+app.use('/api/auth', authLimiter);
 
 app.use('/api/auth', authRoutes);
 app.use('/api/crags', cragRoutes);

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { body, validationResult } from 'express-validator';
 import Tick from '../models/Tick.js';
-import { requireAuth } from '../middleware/auth.js';
+import { requireAuth, isValidObjectId } from '../middleware/auth.js';
 
 const router = Router();
 
@@ -9,6 +9,7 @@ router.get('/', requireAuth, async (req, res) => {
   try {
     const { route_id } = req.query;
     if (!route_id) return res.status(400).json({ error: 'route_id required' });
+    if (!isValidObjectId(route_id)) return res.status(400).json({ error: 'Invalid route_id' });
     const ticks = await Tick.find({ route_id }).populate('user_id', 'nickname').lean();
     res.json(ticks);
   } catch (err) {

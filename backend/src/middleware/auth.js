@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
 
 export function requireAuth(req, res, next) {
   const header = req.headers.authorization;
@@ -26,4 +27,8 @@ export function optionalAuth(req, _res, next) {
     }
   }
   next();
+}
+
+export function isValidObjectId(id) {
+  return mongoose.Types.ObjectId.isValid(id);
 }

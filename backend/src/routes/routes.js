@@ -4,13 +4,15 @@ import Route from '../models/Route.js';
 import Crag from '../models/Crag.js';
 import Sector from '../models/Sector.js';
 import BetaNote from '../models/BetaNote.js';
-import { requireAuth, optionalAuth } from '../middleware/auth.js';
+import { requireAuth, optionalAuth, isValidObjectId } from '../middleware/auth.js';
 
 const router = Router();
 
 router.get('/', async (req, res) => {
   try {
     const { crag_id, sector_id } = req.query;
+    if (crag_id && !isValidObjectId(crag_id)) return res.status(400).json({ error: 'Invalid crag_id' });
+    if (sector_id && !isValidObjectId(sector_id)) return res.status(400).json({ error: 'Invalid sector_id' });
     const filter = { status: 'active' };
     if (crag_id) filter.crag_id = crag_id;
     if (sector_id) filter.sector_id = sector_id;

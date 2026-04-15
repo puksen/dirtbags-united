@@ -48,8 +48,8 @@ export default function MapView() {
           const marker = new maplibregl.Marker({ element: el })
             .setLngLat([lng, lat])
             .setPopup(
-              new maplibregl.Popup({ offset: 12 }).setHTML(
-                `<strong>${crag.name}</strong>${crag.area ? `<br/><span style="color:#666">${crag.area}</span>` : ''}`
+              new maplibregl.Popup({ offset: 12 }).setText(
+                crag.name + (crag.area ? ` — ${crag.area}` : '')
               )
             )
             .addTo(map)
