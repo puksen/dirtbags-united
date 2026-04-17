@@ -1,0 +1,27 @@
+{
+  "name": "dirtbags-united",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages",
+    "packages/*"
+  ],
+  "version": "1.0.0",
+  "description": "community based climbing app/website to create topos and make them available and free for everyone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puksen/dirtbags-united.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/puksen/dirtbags-united/issues"
+  },
+  "homepage": "https://github.com/puksen/dirtbags-united#readme"
+}
