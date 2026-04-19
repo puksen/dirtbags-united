@@ -56,3 +56,8 @@ DevDependencies:
 - typescript
 - typescript-eslint
 - vite
+
+## Run Dev Servers:
+
+`npm run dev:pwa` for Frontend
+`npm run dev:api` for Backend

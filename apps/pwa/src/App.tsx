@@ -5,7 +5,6 @@ function App() {
     <main>
       <section>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button />
           <a
             className="rounded-full bg-sky-400 px-5 py-3 font-medium text-slate-950 transition hover:bg-sky-300"
             href="https://tailwindcss.com/docs"
@@ -22,6 +21,10 @@ function App() {
           >
             Vite Guide
           </a>
+        </div>
+        <div className="mt-8 flex justify-center">
+          <Button label="test secondary" variant='secondary' />
+          <Button label="test primary" variant='primary' />
         </div>
       </section>
     </main>

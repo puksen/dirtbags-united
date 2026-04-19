@@ -10,6 +10,9 @@
   "description": "community based climbing app/website to create topos and make them available and free for everyone",
   "main": "index.js",
   "scripts": {
+    "dev": "npm run dev --workspace apps/pwa",
+    "dev:pwa": "npm run dev --workspace apps/pwa",
+    "dev:api": "npm run dev --workspace apps/api",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
