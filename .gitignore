@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# GitHub Agents
+.github/
+
 # Build output
 dist/
 dist-ssr/
