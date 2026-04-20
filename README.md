@@ -61,3 +61,7 @@ DevDependencies:
 
 `npm run dev:pwa` for Frontend
 `npm run dev:api` for Backend
+
+## Styleguide:
+
+Styleguide is reachable under `/styleguide`
