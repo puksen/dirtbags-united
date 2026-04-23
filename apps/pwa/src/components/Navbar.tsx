@@ -10,7 +10,7 @@ const navigation = [
 
 export default function Navbar() {
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-stone-200 bg-stone-50 px-2 py-2 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]">
+    <nav className="z-50 shrink-0 border-t border-stone-200 bg-stone-50 px-2 py-2 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]">
       <div className="mx-auto flex max-w-3xl items-center justify-around">
         {navigation.map((item) => (
           <NavLink
