@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.10",
     "@heroicons/react": "^2.2.0",
+    "@supabase/supabase-js": "^2.104.1",
     "maplibre-gl": "^5.23.0",
     "maplibre-react-components": "^0.2.6",
     "maplibre-theme": "^1.0.0",

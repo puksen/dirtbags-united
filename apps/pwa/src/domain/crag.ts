@@ -10,5 +10,6 @@ export interface Crag {
   parkingLatitude?: number;
   description?: string;
   sectors?: Sector[];
-  routes: Route[];
+  routes?: Route[];
+  approachTime?: number; // in minutes
 }
